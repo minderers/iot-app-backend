@@ -2644,3 +2644,330 @@
 2025-06-04 09:23:45.128 [reactor-http-nio-10] DEBUG o.s.c.g.f.h.o.ObservedResponseHttpHeadersFilter - The response was handled for observation {name=http.client.requests(null), error=null, context=name='http.client.requests', contextualName='null', error='null', lowCardinalityKeyValues=[http.method='GET', http.status_code='UNKNOWN', spring.cloud.gateway.route.id='iot-cloud-content', spring.cloud.gateway.route.uri='lb://iot-cloud-content'], highCardinalityKeyValues=[http.uri='http://localhost:8080/v3/api-docs'], map=[class io.micrometer.core.instrument.Timer$Sample='io.micrometer.core.instrument.Timer$Sample@6adffb79', class io.micrometer.core.instrument.LongTaskTimer$Sample='SampleImpl{duration(seconds)=0.0075016, duration(nanos)=7501600.0, startTimeNanos=5785858569800}'], parentObservation={name=http.server.requests(null), error=null, context=name='http.server.requests', contextualName='null', error='null', lowCardinalityKeyValues=[exception='none', method='GET', outcome='SUCCESS', status='200', uri='UNKNOWN'], highCardinalityKeyValues=[http.url='/content/v3/api-docs'], map=[class io.micrometer.core.instrument.Timer$Sample='io.micrometer.core.instrument.Timer$Sample@44faa685', class io.micrometer.core.instrument.LongTaskTimer$Sample='SampleImpl{duration(seconds)=0.0105454, duration(nanos)=1.05454E7, startTimeNanos=5785855550100}'], parentObservation=null}}
 2025-06-04 09:23:45.130 [reactor-http-nio-9] DEBUG o.s.c.g.f.h.o.ObservedResponseHttpHeadersFilter - Will instrument the response
 2025-06-04 09:23:45.131 [reactor-http-nio-9] DEBUG o.s.c.g.f.h.o.ObservedResponseHttpHeadersFilter - The response was handled for observation {name=http.client.requests(null), error=null, context=name='http.client.requests', contextualName='null', error='null', lowCardinalityKeyValues=[http.method='GET', http.status_code='UNKNOWN', spring.cloud.gateway.route.id='iot-cloud-user', spring.cloud.gateway.route.uri='lb://iot-cloud-user'], highCardinalityKeyValues=[http.uri='http://localhost:8080/favicon.ico'], map=[class io.micrometer.core.instrument.Timer$Sample='io.micrometer.core.instrument.Timer$Sample@168146fd', class io.micrometer.core.instrument.LongTaskTimer$Sample='SampleImpl{duration(seconds)=0.0040296, duration(nanos)=4029600.0, startTimeNanos=5785864157400}'], parentObservation={name=http.server.requests(null), error=null, context=name='http.server.requests', contextualName='null', error='null', lowCardinalityKeyValues=[exception='none', method='GET', outcome='SUCCESS', status='200', uri='UNKNOWN'], highCardinalityKeyValues=[http.url='/favicon.ico'], map=[class io.micrometer.core.instrument.Timer$Sample='io.micrometer.core.instrument.Timer$Sample@1905b0bd', class io.micrometer.core.instrument.LongTaskTimer$Sample='SampleImpl{duration(seconds)=0.0058364, duration(nanos)=5836400.0, startTimeNanos=5785862375000}'], parentObservation=null}}
+2025-06-04 11:03:09.872 [main] DEBUG top.dl.GatewayApplication - Running with Spring Boot v3.3.2, Spring v6.1.11
+2025-06-04 11:03:11.575 [main] DEBUG o.s.cloud.gateway.config.GatewayProperties - Routes supplied from Gateway Properties: [RouteDefinition{id='iot-cloud-user', predicates=[PredicateDefinition{name='Path', args={_genkey_0=/**}}], filters=[], uri=lb://iot-cloud-user, order=9999, metadata={}}, RouteDefinition{id='iot-cloud-content', predicates=[PredicateDefinition{name='Path', args={_genkey_0=/content/**}}], filters=[FilterDefinition{name='StripPrefix', args={_genkey_0=1}}], uri=lb://iot-cloud-content, order=1, metadata={}}, RouteDefinition{id='iot-cloud-iot', predicates=[PredicateDefinition{name='Path', args={_genkey_0=/iot/**}}], filters=[FilterDefinition{name='StripPrefix', args={_genkey_0=1}}], uri=lb://iot-cloud-iot, order=2, metadata={}}]
+2025-06-04 11:03:11.624 [main] DEBUG o.s.c.g.f.f.cache.LocalResponseCacheProperties - No TTL configuration found. Default TTL will be applied for cache entries: PT5M minutes
+2025-06-04 11:10:17.767 [main] DEBUG top.dl.GatewayApplication - Running with Spring Boot v3.3.2, Spring v6.1.11
+2025-06-04 11:10:19.315 [main] DEBUG o.s.cloud.gateway.config.GatewayProperties - Routes supplied from Gateway Properties: [RouteDefinition{id='iot-cloud-user', predicates=[PredicateDefinition{name='Path', args={_genkey_0=/**}}], filters=[], uri=lb://iot-cloud-user, order=9999, metadata={}}, RouteDefinition{id='iot-cloud-content', predicates=[PredicateDefinition{name='Path', args={_genkey_0=/content/**}}], filters=[FilterDefinition{name='StripPrefix', args={_genkey_0=1}}], uri=lb://iot-cloud-content, order=1, metadata={}}, RouteDefinition{id='iot-cloud-iot', predicates=[PredicateDefinition{name='Path', args={_genkey_0=/iot/**}}], filters=[FilterDefinition{name='StripPrefix', args={_genkey_0=1}}], uri=lb://iot-cloud-iot, order=2, metadata={}}]
+2025-06-04 11:10:19.350 [main] DEBUG o.s.c.g.f.f.cache.LocalResponseCacheProperties - No TTL configuration found. Default TTL will be applied for cache entries: PT5M minutes
+2025-06-04 11:10:20.786 [boundedElastic-4] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-gateway applying {pattern=/iot-cloud-gateway/**} to Path
+2025-06-04 11:10:20.786 [boundedElastic-3] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-gateway applying {pattern=/iot-cloud-gateway/**} to Path
+2025-06-04 11:10:20.799 [boundedElastic-4] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-gateway applying filter {regexp=/iot-cloud-gateway/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-04 11:10:20.799 [boundedElastic-3] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-gateway applying filter {regexp=/iot-cloud-gateway/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-04 11:10:20.805 [boundedElastic-4] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_iot-cloud-gateway
+2025-06-04 11:10:20.805 [boundedElastic-3] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_iot-cloud-gateway
+2025-06-04 11:10:20.805 [boundedElastic-3] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-user applying {_genkey_0=/**} to Path
+2025-06-04 11:10:20.805 [boundedElastic-4] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-user applying {_genkey_0=/**} to Path
+2025-06-04 11:10:20.806 [boundedElastic-4] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-user
+2025-06-04 11:10:20.806 [boundedElastic-3] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-user
+2025-06-04 11:10:20.806 [boundedElastic-4] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-content applying {_genkey_0=/content/**} to Path
+2025-06-04 11:10:20.806 [boundedElastic-3] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-content applying {_genkey_0=/content/**} to Path
+2025-06-04 11:10:20.807 [boundedElastic-4] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-content applying filter {_genkey_0=1} to StripPrefix
+2025-06-04 11:10:20.807 [boundedElastic-3] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-content applying filter {_genkey_0=1} to StripPrefix
+2025-06-04 11:10:20.810 [boundedElastic-3] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-content
+2025-06-04 11:10:20.810 [boundedElastic-4] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-content
+2025-06-04 11:10:20.810 [boundedElastic-3] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-iot applying {_genkey_0=/iot/**} to Path
+2025-06-04 11:10:20.810 [boundedElastic-4] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-iot applying {_genkey_0=/iot/**} to Path
+2025-06-04 11:10:20.811 [boundedElastic-4] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-iot applying filter {_genkey_0=1} to StripPrefix
+2025-06-04 11:10:20.811 [boundedElastic-3] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-iot applying filter {_genkey_0=1} to StripPrefix
+2025-06-04 11:10:20.811 [boundedElastic-4] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-iot
+2025-06-04 11:10:20.812 [boundedElastic-3] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-iot
+2025-06-04 11:10:20.873 [boundedElastic-4] DEBUG o.s.cloud.gateway.filter.GatewayMetricsFilter - New routes count: 4
+2025-06-04 11:10:20.933 [boundedElastic-6] DEBUG o.s.cloud.gateway.filter.GatewayMetricsFilter - New routes count: 4
+2025-06-04 11:10:20.933 [boundedElastic-2] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-gateway applying {pattern=/iot-cloud-gateway/**} to Path
+2025-06-04 11:10:20.934 [boundedElastic-2] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-gateway applying filter {regexp=/iot-cloud-gateway/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-04 11:10:20.935 [boundedElastic-2] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_iot-cloud-gateway
+2025-06-04 11:10:20.935 [boundedElastic-2] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-user applying {_genkey_0=/**} to Path
+2025-06-04 11:10:20.936 [boundedElastic-2] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-user
+2025-06-04 11:10:20.936 [boundedElastic-2] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-content applying {_genkey_0=/content/**} to Path
+2025-06-04 11:10:20.937 [boundedElastic-2] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-content applying filter {_genkey_0=1} to StripPrefix
+2025-06-04 11:10:20.937 [boundedElastic-2] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-content
+2025-06-04 11:10:20.937 [boundedElastic-2] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-iot applying {_genkey_0=/iot/**} to Path
+2025-06-04 11:10:20.938 [boundedElastic-2] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-iot applying filter {_genkey_0=1} to StripPrefix
+2025-06-04 11:10:20.938 [boundedElastic-2] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-iot
+2025-06-04 11:10:20.944 [boundedElastic-2] DEBUG o.s.cloud.gateway.filter.GatewayMetricsFilter - New routes count: 4
+2025-06-04 11:10:20.944 [boundedElastic-3] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-gateway applying {pattern=/iot-cloud-gateway/**} to Path
+2025-06-04 11:10:20.945 [boundedElastic-3] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-gateway applying filter {regexp=/iot-cloud-gateway/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-04 11:10:20.946 [boundedElastic-3] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_iot-cloud-gateway
+2025-06-04 11:10:20.946 [boundedElastic-3] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-user applying {_genkey_0=/**} to Path
+2025-06-04 11:10:20.948 [boundedElastic-3] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-user
+2025-06-04 11:10:20.948 [boundedElastic-3] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-content applying {_genkey_0=/content/**} to Path
+2025-06-04 11:10:20.949 [boundedElastic-3] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-content applying filter {_genkey_0=1} to StripPrefix
+2025-06-04 11:10:20.949 [boundedElastic-3] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-content
+2025-06-04 11:10:20.949 [boundedElastic-3] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-iot applying {_genkey_0=/iot/**} to Path
+2025-06-04 11:10:20.950 [boundedElastic-3] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-iot applying filter {_genkey_0=1} to StripPrefix
+2025-06-04 11:10:20.950 [boundedElastic-3] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-iot
+2025-06-04 11:10:41.108 [main] DEBUG top.dl.IotApplication - Running with Spring Boot v3.3.2, Spring v6.1.11
+2025-06-04 11:10:51.046 [boundedElastic-3] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-gateway applying {pattern=/iot-cloud-gateway/**} to Path
+2025-06-04 11:10:51.046 [boundedElastic-5] DEBUG o.s.cloud.gateway.filter.GatewayMetricsFilter - New routes count: 4
+2025-06-04 11:10:51.047 [boundedElastic-3] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-gateway applying filter {regexp=/iot-cloud-gateway/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-04 11:10:51.048 [boundedElastic-3] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_iot-cloud-gateway
+2025-06-04 11:10:51.048 [boundedElastic-3] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-user applying {_genkey_0=/**} to Path
+2025-06-04 11:10:51.048 [boundedElastic-3] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-user
+2025-06-04 11:10:51.048 [boundedElastic-3] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-content applying {_genkey_0=/content/**} to Path
+2025-06-04 11:10:51.049 [boundedElastic-3] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-content applying filter {_genkey_0=1} to StripPrefix
+2025-06-04 11:10:51.049 [boundedElastic-3] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-content
+2025-06-04 11:10:51.049 [boundedElastic-3] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-iot applying {_genkey_0=/iot/**} to Path
+2025-06-04 11:10:51.049 [boundedElastic-3] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-iot applying filter {_genkey_0=1} to StripPrefix
+2025-06-04 11:10:51.049 [boundedElastic-3] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-iot
+2025-06-04 11:11:21.154 [boundedElastic-3] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-gateway applying {pattern=/iot-cloud-gateway/**} to Path
+2025-06-04 11:11:21.154 [boundedElastic-6] DEBUG o.s.cloud.gateway.filter.GatewayMetricsFilter - New routes count: 4
+2025-06-04 11:11:21.155 [boundedElastic-3] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-gateway applying filter {regexp=/iot-cloud-gateway/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-04 11:11:21.156 [boundedElastic-3] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_iot-cloud-gateway
+2025-06-04 11:11:21.156 [boundedElastic-3] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-user applying {_genkey_0=/**} to Path
+2025-06-04 11:11:21.156 [boundedElastic-3] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-user
+2025-06-04 11:11:21.156 [boundedElastic-3] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-content applying {_genkey_0=/content/**} to Path
+2025-06-04 11:11:21.156 [boundedElastic-3] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-content applying filter {_genkey_0=1} to StripPrefix
+2025-06-04 11:11:21.157 [boundedElastic-3] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-content
+2025-06-04 11:11:21.157 [boundedElastic-3] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-iot applying {_genkey_0=/iot/**} to Path
+2025-06-04 11:11:21.157 [boundedElastic-3] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-iot applying filter {_genkey_0=1} to StripPrefix
+2025-06-04 11:11:21.157 [boundedElastic-3] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-iot
+2025-06-04 11:11:51.275 [boundedElastic-2] DEBUG o.s.cloud.gateway.filter.GatewayMetricsFilter - New routes count: 4
+2025-06-04 11:11:51.275 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-gateway applying {pattern=/iot-cloud-gateway/**} to Path
+2025-06-04 11:11:51.276 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-gateway applying filter {regexp=/iot-cloud-gateway/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-04 11:11:51.276 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_iot-cloud-gateway
+2025-06-04 11:11:51.276 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-user applying {_genkey_0=/**} to Path
+2025-06-04 11:11:51.277 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-user
+2025-06-04 11:11:51.277 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-content applying {_genkey_0=/content/**} to Path
+2025-06-04 11:11:51.277 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-content applying filter {_genkey_0=1} to StripPrefix
+2025-06-04 11:11:51.278 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-content
+2025-06-04 11:11:51.278 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-iot applying {_genkey_0=/iot/**} to Path
+2025-06-04 11:11:51.278 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-iot applying filter {_genkey_0=1} to StripPrefix
+2025-06-04 11:11:51.279 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-iot
+2025-06-04 11:12:21.383 [boundedElastic-2] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-gateway applying {pattern=/iot-cloud-gateway/**} to Path
+2025-06-04 11:12:21.383 [boundedElastic-3] DEBUG o.s.cloud.gateway.filter.GatewayMetricsFilter - New routes count: 4
+2025-06-04 11:12:21.384 [boundedElastic-2] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-gateway applying filter {regexp=/iot-cloud-gateway/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-04 11:12:21.384 [boundedElastic-2] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_iot-cloud-gateway
+2025-06-04 11:12:21.384 [boundedElastic-2] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-user applying {_genkey_0=/**} to Path
+2025-06-04 11:12:21.389 [boundedElastic-2] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-user
+2025-06-04 11:12:21.389 [boundedElastic-2] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-content applying {_genkey_0=/content/**} to Path
+2025-06-04 11:12:21.391 [boundedElastic-2] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-content applying filter {_genkey_0=1} to StripPrefix
+2025-06-04 11:12:21.391 [boundedElastic-2] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-content
+2025-06-04 11:12:21.392 [boundedElastic-2] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-iot applying {_genkey_0=/iot/**} to Path
+2025-06-04 11:12:21.394 [boundedElastic-2] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-iot applying filter {_genkey_0=1} to StripPrefix
+2025-06-04 11:12:21.396 [boundedElastic-2] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-iot
+2025-06-04 11:12:43.151 [main] DEBUG top.dl.IotApplication - Running with Spring Boot v3.3.2, Spring v6.1.11
+2025-06-04 11:12:51.489 [boundedElastic-3] DEBUG o.s.cloud.gateway.filter.GatewayMetricsFilter - New routes count: 4
+2025-06-04 11:12:51.489 [boundedElastic-5] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-gateway applying {pattern=/iot-cloud-gateway/**} to Path
+2025-06-04 11:12:51.490 [boundedElastic-5] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-gateway applying filter {regexp=/iot-cloud-gateway/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-04 11:12:51.491 [boundedElastic-5] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_iot-cloud-gateway
+2025-06-04 11:12:51.491 [boundedElastic-5] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-user applying {_genkey_0=/**} to Path
+2025-06-04 11:12:51.492 [boundedElastic-5] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-user
+2025-06-04 11:12:51.492 [boundedElastic-5] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-content applying {_genkey_0=/content/**} to Path
+2025-06-04 11:12:51.493 [boundedElastic-5] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-content applying filter {_genkey_0=1} to StripPrefix
+2025-06-04 11:12:51.493 [boundedElastic-5] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-content
+2025-06-04 11:12:51.493 [boundedElastic-5] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-iot applying {_genkey_0=/iot/**} to Path
+2025-06-04 11:12:51.493 [boundedElastic-5] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-iot applying filter {_genkey_0=1} to StripPrefix
+2025-06-04 11:12:51.494 [boundedElastic-5] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-iot
+2025-06-04 11:13:21.132 [main] DEBUG top.dl.IotApplication - Running with Spring Boot v3.3.2, Spring v6.1.11
+2025-06-04 11:13:21.603 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-gateway applying {pattern=/iot-cloud-gateway/**} to Path
+2025-06-04 11:13:21.604 [boundedElastic-3] DEBUG o.s.cloud.gateway.filter.GatewayMetricsFilter - New routes count: 4
+2025-06-04 11:13:21.604 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-gateway applying filter {regexp=/iot-cloud-gateway/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-04 11:13:21.605 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_iot-cloud-gateway
+2025-06-04 11:13:21.605 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-user applying {_genkey_0=/**} to Path
+2025-06-04 11:13:21.605 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-user
+2025-06-04 11:13:21.605 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-content applying {_genkey_0=/content/**} to Path
+2025-06-04 11:13:21.606 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-content applying filter {_genkey_0=1} to StripPrefix
+2025-06-04 11:13:21.606 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-content
+2025-06-04 11:13:21.606 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-iot applying {_genkey_0=/iot/**} to Path
+2025-06-04 11:13:21.606 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-iot applying filter {_genkey_0=1} to StripPrefix
+2025-06-04 11:13:21.607 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-iot
+2025-06-04 11:13:26.379 [main] DEBUG t.d.f.security.filter.AuthenticationTokenFilter - Filter 'authenticationTokenFilter' configured for use
+2025-06-04 11:13:51.714 [boundedElastic-5] DEBUG o.s.cloud.gateway.filter.GatewayMetricsFilter - New routes count: 4
+2025-06-04 11:13:51.714 [boundedElastic-5] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-gateway applying {pattern=/iot-cloud-gateway/**} to Path
+2025-06-04 11:13:51.715 [boundedElastic-5] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-gateway applying filter {regexp=/iot-cloud-gateway/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-04 11:13:51.715 [boundedElastic-5] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_iot-cloud-gateway
+2025-06-04 11:13:51.715 [boundedElastic-5] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-user applying {_genkey_0=/**} to Path
+2025-06-04 11:13:51.716 [boundedElastic-5] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-user
+2025-06-04 11:13:51.716 [boundedElastic-5] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-content applying {_genkey_0=/content/**} to Path
+2025-06-04 11:13:51.716 [boundedElastic-5] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-content applying filter {_genkey_0=1} to StripPrefix
+2025-06-04 11:13:51.717 [boundedElastic-5] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-content
+2025-06-04 11:13:51.717 [boundedElastic-5] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-iot applying {_genkey_0=/iot/**} to Path
+2025-06-04 11:13:51.717 [boundedElastic-5] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-iot applying filter {_genkey_0=1} to StripPrefix
+2025-06-04 11:13:51.718 [boundedElastic-5] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-iot
+2025-06-04 11:14:21.832 [boundedElastic-2] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-gateway applying {pattern=/iot-cloud-gateway/**} to Path
+2025-06-04 11:14:21.832 [boundedElastic-3] DEBUG o.s.cloud.gateway.filter.GatewayMetricsFilter - New routes count: 4
+2025-06-04 11:14:21.834 [boundedElastic-2] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-gateway applying filter {regexp=/iot-cloud-gateway/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-04 11:14:21.835 [boundedElastic-2] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_iot-cloud-gateway
+2025-06-04 11:14:21.835 [boundedElastic-2] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-user applying {_genkey_0=/**} to Path
+2025-06-04 11:14:21.836 [boundedElastic-2] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-user
+2025-06-04 11:14:21.836 [boundedElastic-2] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-content applying {_genkey_0=/content/**} to Path
+2025-06-04 11:14:21.836 [boundedElastic-2] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-content applying filter {_genkey_0=1} to StripPrefix
+2025-06-04 11:14:21.837 [boundedElastic-2] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-content
+2025-06-04 11:14:21.837 [boundedElastic-2] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-iot applying {_genkey_0=/iot/**} to Path
+2025-06-04 11:14:21.839 [boundedElastic-2] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-iot applying filter {_genkey_0=1} to StripPrefix
+2025-06-04 11:14:21.839 [boundedElastic-2] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-iot
+2025-06-04 11:14:51.923 [boundedElastic-7] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-gateway applying {pattern=/iot-cloud-gateway/**} to Path
+2025-06-04 11:14:51.923 [boundedElastic-6] DEBUG o.s.cloud.gateway.filter.GatewayMetricsFilter - New routes count: 4
+2025-06-04 11:14:51.924 [boundedElastic-7] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-gateway applying filter {regexp=/iot-cloud-gateway/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-04 11:14:51.924 [boundedElastic-7] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_iot-cloud-gateway
+2025-06-04 11:14:51.924 [boundedElastic-7] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-user applying {_genkey_0=/**} to Path
+2025-06-04 11:14:51.925 [boundedElastic-7] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-user
+2025-06-04 11:14:51.925 [boundedElastic-7] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-content applying {_genkey_0=/content/**} to Path
+2025-06-04 11:14:51.925 [boundedElastic-7] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-content applying filter {_genkey_0=1} to StripPrefix
+2025-06-04 11:14:51.925 [boundedElastic-7] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-content
+2025-06-04 11:14:51.925 [boundedElastic-7] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-iot applying {_genkey_0=/iot/**} to Path
+2025-06-04 11:14:51.925 [boundedElastic-7] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-iot applying filter {_genkey_0=1} to StripPrefix
+2025-06-04 11:14:51.925 [boundedElastic-7] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-iot
+2025-06-04 11:15:22.035 [boundedElastic-2] DEBUG o.s.cloud.gateway.filter.GatewayMetricsFilter - New routes count: 4
+2025-06-04 11:15:22.035 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-gateway applying {pattern=/iot-cloud-gateway/**} to Path
+2025-06-04 11:15:22.036 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-gateway applying filter {regexp=/iot-cloud-gateway/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-04 11:15:22.037 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_iot-cloud-gateway
+2025-06-04 11:15:22.037 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-user applying {_genkey_0=/**} to Path
+2025-06-04 11:15:22.037 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-user
+2025-06-04 11:15:22.037 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-content applying {_genkey_0=/content/**} to Path
+2025-06-04 11:15:22.038 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-content applying filter {_genkey_0=1} to StripPrefix
+2025-06-04 11:15:22.038 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-content
+2025-06-04 11:15:22.038 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-iot applying {_genkey_0=/iot/**} to Path
+2025-06-04 11:15:22.039 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-iot applying filter {_genkey_0=1} to StripPrefix
+2025-06-04 11:15:22.039 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-iot
+2025-06-04 11:15:52.144 [boundedElastic-2] DEBUG o.s.cloud.gateway.filter.GatewayMetricsFilter - New routes count: 4
+2025-06-04 11:15:52.144 [boundedElastic-7] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-gateway applying {pattern=/iot-cloud-gateway/**} to Path
+2025-06-04 11:15:52.145 [boundedElastic-7] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-gateway applying filter {regexp=/iot-cloud-gateway/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-04 11:15:52.146 [boundedElastic-7] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_iot-cloud-gateway
+2025-06-04 11:15:52.146 [boundedElastic-7] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-user applying {_genkey_0=/**} to Path
+2025-06-04 11:15:52.147 [boundedElastic-7] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-user
+2025-06-04 11:15:52.147 [boundedElastic-7] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-content applying {_genkey_0=/content/**} to Path
+2025-06-04 11:15:52.148 [boundedElastic-7] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-content applying filter {_genkey_0=1} to StripPrefix
+2025-06-04 11:15:52.149 [boundedElastic-7] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-content
+2025-06-04 11:15:52.150 [boundedElastic-7] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-iot applying {_genkey_0=/iot/**} to Path
+2025-06-04 11:15:52.151 [boundedElastic-7] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-iot applying filter {_genkey_0=1} to StripPrefix
+2025-06-04 11:15:52.151 [boundedElastic-7] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-iot
+2025-06-04 11:16:22.263 [boundedElastic-2] DEBUG o.s.cloud.gateway.filter.GatewayMetricsFilter - New routes count: 4
+2025-06-04 11:16:22.263 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-gateway applying {pattern=/iot-cloud-gateway/**} to Path
+2025-06-04 11:16:22.264 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-gateway applying filter {regexp=/iot-cloud-gateway/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-04 11:16:22.266 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_iot-cloud-gateway
+2025-06-04 11:16:22.266 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-user applying {_genkey_0=/**} to Path
+2025-06-04 11:16:22.267 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-user
+2025-06-04 11:16:22.267 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-content applying {_genkey_0=/content/**} to Path
+2025-06-04 11:16:22.267 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-content applying filter {_genkey_0=1} to StripPrefix
+2025-06-04 11:16:22.268 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-content
+2025-06-04 11:16:22.268 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-iot applying {_genkey_0=/iot/**} to Path
+2025-06-04 11:16:22.268 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-iot applying filter {_genkey_0=1} to StripPrefix
+2025-06-04 11:16:22.269 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-iot
+2025-06-04 11:16:52.358 [boundedElastic-6] DEBUG o.s.cloud.gateway.filter.GatewayMetricsFilter - New routes count: 4
+2025-06-04 11:16:52.359 [boundedElastic-8] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-gateway applying {pattern=/iot-cloud-gateway/**} to Path
+2025-06-04 11:16:52.361 [boundedElastic-8] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-gateway applying filter {regexp=/iot-cloud-gateway/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-04 11:16:52.362 [boundedElastic-8] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_iot-cloud-gateway
+2025-06-04 11:16:52.362 [boundedElastic-8] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-user applying {_genkey_0=/**} to Path
+2025-06-04 11:16:52.363 [boundedElastic-8] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-user
+2025-06-04 11:16:52.363 [boundedElastic-8] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-content applying {_genkey_0=/content/**} to Path
+2025-06-04 11:16:52.364 [boundedElastic-8] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-content applying filter {_genkey_0=1} to StripPrefix
+2025-06-04 11:16:52.367 [boundedElastic-8] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-content
+2025-06-04 11:16:52.367 [boundedElastic-8] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-iot applying {_genkey_0=/iot/**} to Path
+2025-06-04 11:16:52.372 [boundedElastic-8] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-iot applying filter {_genkey_0=1} to StripPrefix
+2025-06-04 11:16:52.373 [boundedElastic-8] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-iot
+2025-06-04 11:17:22.473 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-gateway applying {pattern=/iot-cloud-gateway/**} to Path
+2025-06-04 11:17:22.475 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-gateway applying filter {regexp=/iot-cloud-gateway/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-04 11:17:22.476 [boundedElastic-2] DEBUG o.s.cloud.gateway.filter.GatewayMetricsFilter - New routes count: 4
+2025-06-04 11:17:22.477 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_iot-cloud-gateway
+2025-06-04 11:17:22.477 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-user applying {_genkey_0=/**} to Path
+2025-06-04 11:17:22.478 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-user
+2025-06-04 11:17:22.478 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-content applying {_genkey_0=/content/**} to Path
+2025-06-04 11:17:22.484 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-content applying filter {_genkey_0=1} to StripPrefix
+2025-06-04 11:17:22.484 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-content
+2025-06-04 11:17:22.484 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-iot applying {_genkey_0=/iot/**} to Path
+2025-06-04 11:17:22.485 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-iot applying filter {_genkey_0=1} to StripPrefix
+2025-06-04 11:17:22.485 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-iot
+2025-06-04 11:17:52.584 [boundedElastic-7] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-gateway applying {pattern=/iot-cloud-gateway/**} to Path
+2025-06-04 11:17:52.585 [boundedElastic-8] DEBUG o.s.cloud.gateway.filter.GatewayMetricsFilter - New routes count: 4
+2025-06-04 11:17:52.585 [boundedElastic-7] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-gateway applying filter {regexp=/iot-cloud-gateway/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-04 11:17:52.586 [boundedElastic-7] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_iot-cloud-gateway
+2025-06-04 11:17:52.587 [boundedElastic-7] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-user applying {_genkey_0=/**} to Path
+2025-06-04 11:17:52.587 [boundedElastic-7] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-user
+2025-06-04 11:17:52.588 [boundedElastic-7] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-content applying {_genkey_0=/content/**} to Path
+2025-06-04 11:17:52.589 [boundedElastic-7] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-content applying filter {_genkey_0=1} to StripPrefix
+2025-06-04 11:17:52.591 [boundedElastic-7] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-content
+2025-06-04 11:17:52.591 [boundedElastic-7] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-iot applying {_genkey_0=/iot/**} to Path
+2025-06-04 11:17:52.592 [boundedElastic-7] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-iot applying filter {_genkey_0=1} to StripPrefix
+2025-06-04 11:17:52.593 [boundedElastic-7] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-iot
+2025-06-04 11:18:22.696 [boundedElastic-8] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-gateway applying {pattern=/iot-cloud-gateway/**} to Path
+2025-06-04 11:18:22.697 [boundedElastic-8] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-gateway applying filter {regexp=/iot-cloud-gateway/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-04 11:18:22.697 [boundedElastic-2] DEBUG o.s.cloud.gateway.filter.GatewayMetricsFilter - New routes count: 4
+2025-06-04 11:18:22.698 [boundedElastic-8] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_iot-cloud-gateway
+2025-06-04 11:18:22.698 [boundedElastic-8] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-user applying {_genkey_0=/**} to Path
+2025-06-04 11:18:22.698 [boundedElastic-8] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-user
+2025-06-04 11:18:22.699 [boundedElastic-8] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-content applying {_genkey_0=/content/**} to Path
+2025-06-04 11:18:22.699 [boundedElastic-8] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-content applying filter {_genkey_0=1} to StripPrefix
+2025-06-04 11:18:22.700 [boundedElastic-8] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-content
+2025-06-04 11:18:22.700 [boundedElastic-8] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-iot applying {_genkey_0=/iot/**} to Path
+2025-06-04 11:18:22.700 [boundedElastic-8] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-iot applying filter {_genkey_0=1} to StripPrefix
+2025-06-04 11:18:22.701 [boundedElastic-8] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-iot
+2025-06-04 11:18:52.790 [boundedElastic-6] DEBUG o.s.cloud.gateway.filter.GatewayMetricsFilter - New routes count: 4
+2025-06-04 11:18:52.791 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-gateway applying {pattern=/iot-cloud-gateway/**} to Path
+2025-06-04 11:18:52.792 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-gateway applying filter {regexp=/iot-cloud-gateway/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-04 11:18:52.792 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_iot-cloud-gateway
+2025-06-04 11:18:52.792 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-user applying {_genkey_0=/**} to Path
+2025-06-04 11:18:52.793 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-user
+2025-06-04 11:18:52.793 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-content applying {_genkey_0=/content/**} to Path
+2025-06-04 11:18:52.793 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-content applying filter {_genkey_0=1} to StripPrefix
+2025-06-04 11:18:52.793 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-content
+2025-06-04 11:18:52.793 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-iot applying {_genkey_0=/iot/**} to Path
+2025-06-04 11:18:52.794 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-iot applying filter {_genkey_0=1} to StripPrefix
+2025-06-04 11:18:52.794 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-iot
+2025-06-04 11:19:22.885 [boundedElastic-8] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-gateway applying {pattern=/iot-cloud-gateway/**} to Path
+2025-06-04 11:19:22.886 [boundedElastic-6] DEBUG o.s.cloud.gateway.filter.GatewayMetricsFilter - New routes count: 4
+2025-06-04 11:19:22.886 [boundedElastic-8] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-gateway applying filter {regexp=/iot-cloud-gateway/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-04 11:19:22.886 [boundedElastic-8] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_iot-cloud-gateway
+2025-06-04 11:19:22.886 [boundedElastic-8] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-user applying {_genkey_0=/**} to Path
+2025-06-04 11:19:22.888 [boundedElastic-8] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-user
+2025-06-04 11:19:22.889 [boundedElastic-8] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-content applying {_genkey_0=/content/**} to Path
+2025-06-04 11:19:22.889 [boundedElastic-8] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-content applying filter {_genkey_0=1} to StripPrefix
+2025-06-04 11:19:22.890 [boundedElastic-8] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-content
+2025-06-04 11:19:22.891 [boundedElastic-8] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-iot applying {_genkey_0=/iot/**} to Path
+2025-06-04 11:19:22.891 [boundedElastic-8] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-iot applying filter {_genkey_0=1} to StripPrefix
+2025-06-04 11:19:22.892 [boundedElastic-8] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-iot
+2025-06-04 11:19:52.994 [boundedElastic-7] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-gateway applying {pattern=/iot-cloud-gateway/**} to Path
+2025-06-04 11:19:52.994 [boundedElastic-7] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-gateway applying filter {regexp=/iot-cloud-gateway/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-04 11:19:52.996 [boundedElastic-7] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_iot-cloud-gateway
+2025-06-04 11:19:52.996 [boundedElastic-7] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-user applying {_genkey_0=/**} to Path
+2025-06-04 11:19:52.997 [boundedElastic-8] DEBUG o.s.cloud.gateway.filter.GatewayMetricsFilter - New routes count: 4
+2025-06-04 11:19:52.998 [boundedElastic-7] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-user
+2025-06-04 11:19:52.998 [boundedElastic-7] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-content applying {_genkey_0=/content/**} to Path
+2025-06-04 11:19:53.000 [boundedElastic-7] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-content applying filter {_genkey_0=1} to StripPrefix
+2025-06-04 11:19:53.001 [boundedElastic-7] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-content
+2025-06-04 11:19:53.001 [boundedElastic-7] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-iot applying {_genkey_0=/iot/**} to Path
+2025-06-04 11:19:53.002 [boundedElastic-7] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-iot applying filter {_genkey_0=1} to StripPrefix
+2025-06-04 11:19:53.003 [boundedElastic-7] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-iot
+2025-06-04 11:20:14.960 [nacos.client.config.listener.task-0] DEBUG o.s.cloud.gateway.config.GatewayProperties - Routes supplied from Gateway Properties: [RouteDefinition{id='iot-cloud-user', predicates=[PredicateDefinition{name='Path', args={_genkey_0=/**}}], filters=[], uri=lb://iot-cloud-user, order=9999, metadata={}}, RouteDefinition{id='iot-cloud-content', predicates=[PredicateDefinition{name='Path', args={_genkey_0=/content/**}}], filters=[FilterDefinition{name='StripPrefix', args={_genkey_0=1}}], uri=lb://iot-cloud-content, order=1, metadata={}}, RouteDefinition{id='iot-cloud-iot', predicates=[PredicateDefinition{name='Path', args={_genkey_0=/iot/**}}], filters=[FilterDefinition{name='StripPrefix', args={_genkey_0=1}}], uri=lb://iot-cloud-iot, order=2, metadata={}}]
+2025-06-04 11:20:15.049 [boundedElastic-8] DEBUG o.s.cloud.gateway.filter.GatewayMetricsFilter - New routes count: 4
+2025-06-04 11:20:15.049 [boundedElastic-2] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-gateway applying {pattern=/iot-cloud-gateway/**} to Path
+2025-06-04 11:20:15.050 [boundedElastic-2] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-gateway applying filter {regexp=/iot-cloud-gateway/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-04 11:20:15.050 [boundedElastic-2] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_iot-cloud-gateway
+2025-06-04 11:20:15.050 [boundedElastic-2] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-user applying {_genkey_0=/**} to Path
+2025-06-04 11:20:15.051 [boundedElastic-2] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-user
+2025-06-04 11:20:15.051 [boundedElastic-2] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-content applying {_genkey_0=/content/**} to Path
+2025-06-04 11:20:15.051 [boundedElastic-2] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-content applying filter {_genkey_0=1} to StripPrefix
+2025-06-04 11:20:15.052 [boundedElastic-2] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-content
+2025-06-04 11:20:15.052 [boundedElastic-2] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-iot applying {_genkey_0=/iot/**} to Path
+2025-06-04 11:20:15.052 [boundedElastic-2] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-iot applying filter {_genkey_0=1} to StripPrefix
+2025-06-04 11:20:15.053 [boundedElastic-2] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-iot
+2025-06-04 11:20:21.531 [main] DEBUG top.dl.IotApplication - Running with Spring Boot v3.3.2, Spring v6.1.11
+2025-06-04 11:20:23.104 [boundedElastic-8] DEBUG o.s.cloud.gateway.filter.GatewayMetricsFilter - New routes count: 4
+2025-06-04 11:20:23.104 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-gateway applying {pattern=/iot-cloud-gateway/**} to Path
+2025-06-04 11:20:23.105 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-gateway applying filter {regexp=/iot-cloud-gateway/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-04 11:20:23.105 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_iot-cloud-gateway
+2025-06-04 11:20:23.105 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-user applying {_genkey_0=/**} to Path
+2025-06-04 11:20:23.106 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-user
+2025-06-04 11:20:23.106 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-content applying {_genkey_0=/content/**} to Path
+2025-06-04 11:20:23.106 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-content applying filter {_genkey_0=1} to StripPrefix
+2025-06-04 11:20:23.106 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-content
+2025-06-04 11:20:23.106 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-iot applying {_genkey_0=/iot/**} to Path
+2025-06-04 11:20:23.107 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-iot applying filter {_genkey_0=1} to StripPrefix
+2025-06-04 11:20:23.107 [boundedElastic-6] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-iot
+2025-06-04 11:20:26.862 [main] DEBUG t.d.f.security.filter.AuthenticationTokenFilter - Filter 'authenticationTokenFilter' configured for use
+2025-06-04 11:20:53.253 [boundedElastic-2] DEBUG o.s.cloud.gateway.filter.GatewayMetricsFilter - New routes count: 5
+2025-06-04 11:20:53.255 [boundedElastic-7] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-iot applying {pattern=/iot-cloud-iot/**} to Path
+2025-06-04 11:20:53.256 [boundedElastic-7] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-iot applying filter {regexp=/iot-cloud-iot/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-04 11:20:53.256 [boundedElastic-7] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_iot-cloud-iot
+2025-06-04 11:20:53.256 [boundedElastic-7] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-gateway applying {pattern=/iot-cloud-gateway/**} to Path
+2025-06-04 11:20:53.257 [boundedElastic-7] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-gateway applying filter {regexp=/iot-cloud-gateway/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-04 11:20:53.257 [boundedElastic-7] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_iot-cloud-gateway
+2025-06-04 11:20:53.257 [boundedElastic-7] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-user applying {_genkey_0=/**} to Path
+2025-06-04 11:20:53.257 [boundedElastic-7] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-user
+2025-06-04 11:20:53.257 [boundedElastic-7] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-content applying {_genkey_0=/content/**} to Path
+2025-06-04 11:20:53.257 [boundedElastic-7] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-content applying filter {_genkey_0=1} to StripPrefix
+2025-06-04 11:20:53.258 [boundedElastic-7] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-content
+2025-06-04 11:20:53.258 [boundedElastic-7] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-iot applying {_genkey_0=/iot/**} to Path
+2025-06-04 11:20:53.258 [boundedElastic-7] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-iot applying filter {_genkey_0=1} to StripPrefix
+2025-06-04 11:20:53.258 [boundedElastic-7] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-iot
