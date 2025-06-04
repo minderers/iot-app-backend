@@ -4,3 +4,4 @@ auth:
     - /api/auth/send/code
     - /api/auth/mobile
     - /api/user/getUserById
+    - /api/user/register
