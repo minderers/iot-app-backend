@@ -4,6 +4,7 @@ import jakarta.annotation.PostConstruct;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -23,13 +24,22 @@ import org.springframework.messaging.MessageHandler;
 @Slf4j
 @Configuration
 @IntegrationComponentScan
-@ConfigurationProperties(prefix = "mqtt")
+
 public class MqttConfig {
+    @Value("${mqtt.brokerUrl}")
     private String brokerUrl;
+
+    @Value("${mqtt.username}")
     private String username;
+
+    @Value("${mqtt.password}")
     private String password;
+
+    @Value("${mqtt.clientId}")
     private String clientId;
 
+    @Value("${mqtt.defaultTopic}")
+    private String defaultTopic;
 
     @PostConstruct
     public void init() {
@@ -85,5 +95,4 @@ public class MqttConfig {
         adapter.setOutputChannel(mqttInputChannel());
         return adapter;
     }
-
 }

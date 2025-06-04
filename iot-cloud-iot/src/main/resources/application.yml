@@ -17,3 +17,9 @@ spring:
    import:
     - optional:nacos:datasource.yaml
     - optional:nacos:common.yaml
+mqtt:
+  brokerUrl: tcp://43.142.252.113:1883
+  username: admin
+  password: public
+  clientId: springboot-server
+  defaultTopic: iot/device/

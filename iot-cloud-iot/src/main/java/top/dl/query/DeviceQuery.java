@@ -16,5 +16,5 @@ public class DeviceQuery extends Query {
  @Schema(description = "设备名称")
  private String name;
  @Schema(description = "设备状态")
- private Boolean status;
+ private Integer status;
 }
