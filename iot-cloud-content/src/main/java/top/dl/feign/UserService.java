@@ -11,7 +11,7 @@ import top.dl.vo.UserVO;
  * @createTime: 2025/04/28 15:33
  * @description:
  **/
-@FeignClient(name = "dl-cloud-user")
+@FeignClient(name = "iot-cloud-user")
 public interface UserService {
     @GetMapping(value = "api/user/getUserById")
     Result<UserVO> getUserById(@RequestParam("id") Long id);
