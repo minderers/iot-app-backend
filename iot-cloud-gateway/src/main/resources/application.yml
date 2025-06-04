@@ -1,0 +1,64 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: iot-cloud-gateway
+  cloud:
+    gateway:
+      metrics:
+        enabled: true
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: iot-cloud-user
+          uri: lb://iot-cloud-user
+          order: 9999
+          predicates:
+            - Path=/**
+        - id: iot-cloud-content
+          uri: lb://iot-cloud-content
+          order: 1
+          predicates:
+            - Path=/content/**
+          filters:
+          - StripPrefix=1
+        - id: iot-cloud-iot
+          uri: lb://iot-cloud-iot
+          order: 2
+          predicates:
+            - Path=/iot/**
+          filters:
+            - StripPrefix=1
+    nacos:
+      username: @nacos.username@
+      password: @nacos.password@
+      discovery:
+        server-addr: @nacos.server-addr@
+        namespace: @nacos.namespace@
+      config:
+        server-addr: ${spring.cloud.nacos.discovery.server-addr}
+        namespace: ${spring.cloud.nacos.discovery.namespace}
+  config:
+    import:
+      - optional:nacos:datasource.yaml
+      - optional:nacos:common.yaml
+
+
+knife4j:
+  # 聚合swagger文档
+  gateway:
+    enabled: true
+    # 指定服务发现的模式聚合微服务文档，并且是默认`default`分组
+    strategy: discover
+    discover:
+      enabled: true
+      version : openapi3
+
+logging:
+  level:
+    org:
+      springframework:
+        cloud:
+          gateway: TRACE
