@@ -12,7 +12,7 @@ public class Device extends BaseEntity {
     private String deviceId;
     private String name;
     private Integer type;
-    private Integer is_switched;
+    private Integer isSwitched;
     private Integer status;
     private Float temperature;
     private Float humidity;

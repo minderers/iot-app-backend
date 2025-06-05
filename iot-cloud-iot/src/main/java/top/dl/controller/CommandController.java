@@ -3,6 +3,7 @@ package top.dl.controller;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import top.dl.framework.common.utils.Result;
 import top.dl.service.CommandService;
 
@@ -11,7 +12,6 @@ import top.dl.service.CommandService;
  * @Date 2025/6/4
  * @Description CommandController
  **/
-
 public class CommandController {
     private CommandService commandService;
 
