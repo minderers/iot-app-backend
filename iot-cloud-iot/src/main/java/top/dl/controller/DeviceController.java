@@ -33,7 +33,7 @@ public class DeviceController {
         return Result.ok();
     }
 
-    @GetMapping
+    @GetMapping("/list")
     @Operation(summary = "分⻚获取设备列表")
     public Result<PageResult<DeviceVO>> page(@ParameterObject @Valid DeviceQuery query) {
         return Result.ok(deviceService.page(query));
@@ -48,10 +48,17 @@ public class DeviceController {
         return Result.ok(DeviceConvert.INSTANCE.convert(device));
     }
 
-    @PostMapping("/control")
-    @Operation(summary = "发送控制命令")
-    public Result<String> sendCommand(@RequestParam String deviceId, @RequestParam String command) {
-        deviceService.sendCommand(deviceId, command);
-        return Result.ok("指令发送成功！");
+    @PostMapping("/edit")
+    @Operation(summary = "修改设备")
+    public Result<String> update(@RequestBody @Valid DeviceDTO dto) {
+        deviceService.update(dto);
+        return Result.ok();
+    }
+
+    @PostMapping("/delete/{id}")
+    @Operation(summary = "删除设备")
+    public Result<String> delete(@PathVariable("id") Long id) {
+        deviceService.removeById(id);
+        return Result.ok();
     }
 }

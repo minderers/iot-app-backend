@@ -29,7 +29,10 @@ public class DeviceVO implements Serializable {
  private Integer type;
 
  @Schema(description = "设备状态")
- private Boolean status;
+ private Integer status;
+
+ @Schema(description = "设备开关")
+ private Integer isSwitched;
 
  @Schema(description = "温度")
  private Float temperature;

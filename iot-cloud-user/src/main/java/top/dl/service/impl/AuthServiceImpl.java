@@ -63,6 +63,8 @@ public class AuthServiceImpl implements AuthService {
             entity.setPassword(passwordEncoder.encode("123456"));
             entity.setNickname("新⽤户");
             entity.setAvatar("https://mqxu-oss.oss-cn-hangzhou.aliyuncs.com/avatar/1.jpg");
+            entity.setTenantId(1);
+            entity.setCommunityId(1);
                     userService.save(entity);
         }
         Authentication authentication;

@@ -28,4 +28,8 @@ public class UserDTO implements Serializable {
     @Schema(description = "性别 0：男 1：⼥ 2：未知", required = true)
     @Range(min = 0, max = 2, message = "性别不正确")
     private Integer gender;
+    @Schema(description = "社区Id")
+    private Integer communityId;
+    @Schema(description = "租户Id")
+    private Integer tenantId;
 }
