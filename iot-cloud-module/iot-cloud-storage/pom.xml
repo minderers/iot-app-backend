@@ -13,7 +13,7 @@
     <dependencies>
         <dependency>
             <groupId>top.dl</groupId>
-            <artifactId>dl-cloud-framework</artifactId>
+            <artifactId>iot-cloud-framework</artifactId>
             <version>${revision}</version>
         </dependency>
         <dependency>
