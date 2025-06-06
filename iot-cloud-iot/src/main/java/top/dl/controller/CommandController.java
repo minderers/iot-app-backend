@@ -1,7 +1,10 @@
 package top.dl.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import top.dl.framework.common.utils.Result;
@@ -12,13 +15,21 @@ import top.dl.service.CommandService;
  * @Date 2025/6/4
  * @Description CommandController
  **/
+<<<<<<< HEAD
+=======
+@RestController
+@RequestMapping("api/command")
+@Tag(name = "命令模块")
+@AllArgsConstructor
+>>>>>>> 3d14684137336532e3547576c79969c4aa037806
 public class CommandController {
-    private CommandService commandService;
+    private final CommandService commandService;
 
     @PostMapping("/control")
     @Operation(summary = "发送控制命令")
     public Result<String> sendCommand(@RequestParam String deviceId, @RequestParam String command) {
         commandService.sendCommand(deviceId, command);
+        System.out.print("fasongchengg");
         return Result.ok("指令发送成功！");
     }
 }
