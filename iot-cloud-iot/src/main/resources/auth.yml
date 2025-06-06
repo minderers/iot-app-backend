@@ -1,4 +1,3 @@
 auth:
   ignore_urls:
-    - /api/device/*
-    - /api/device/delete/*
+    - /api/device/list
