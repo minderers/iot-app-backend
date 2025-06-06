@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="top.dl.dao.SceneDao">
+
+    <resultMap type="top.dl.entity.Scene" id="sceneMap">
+        <result property="id" column="id"/>
+        <result property="userId" column="user_id"/>
+        <result property="name" column="name"/>
+        <result property="description" column="description"/>
+        <result property="type" column="type"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="deleted" column="deleted"/>
+        <result property="tenantId" column="tenant_id"/>
+    </resultMap>
+
+    <resultMap type="top.dl.vo.SceneVO" id="sceneVOMap">
+        <result property="id" column="id"/>
+        <result property="userId" column="user_id"/>
+        <result property="name" column="name"/>
+        <result property="description" column="description"/>
+        <result property="type" column="type"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="tenantId" column="tenant_id"/>
+        <collection property="devices" ofType="top.dl.vo.DeviceVO">
+            <result property="id" column="device_table_id"/>
+            <result property="deviceId" column="device_device_id"/>
+            <result property="name" column="device_name"/>
+            <result property="type" column="device_type"/>
+            <result property="status" column="device_status"/>
+        </collection>
+    </resultMap>
+
+    <select id="getList" resultMap="sceneMap">
+        SELECT * FROM t_scene
+        <where>
+            deleted = 0
+            <if test="name != null and name.trim() != ''">
+                AND name LIKE CONCAT('%', #{name}, '%')
+            </if>
+            <if test="userId != null">
+                AND user_id = #{userId}
+            </if>
+            <if test="tenantId != null">
+                AND tenant_id = #{tenantId}
+            </if>
+            <if test="type != null and type.trim() != ''">
+                AND type = #{type}
+            </if>
+        </where>
+        ORDER BY create_time DESC
+    </select>
+
+    <select id="getSceneWithDevices" resultMap="sceneVOMap">
+        SELECT
+            s.id, s.user_id, s.name, s.description, s.type, s.create_time, s.update_time, s.tenant_id,
+            d.id as device_table_id, d.device_id as device_device_id, d.name as device_name,
+            d.type as device_type, d.status as device_status
+        FROM t_scene s
+                 LEFT JOIN t_scene_device sd ON s.id = sd.scene_id AND sd.deleted = 0
+                 LEFT JOIN t_device d ON sd.device_id = d.device_id AND d.deleted = 0
+        WHERE s.id = #{sceneId} AND s.deleted = 0
+    </select>
+
+
+    <select id="getSceneListWithDevices" resultMap="sceneVOMap">
+        SELECT
+        s.id, s.user_id, s.name, s.description, s.type, s.create_time, s.update_time, s.tenant_id,
+        d.id as device_table_id, d.device_id as device_device_id, d.name as device_name,
+        d.type as device_type, d.status as device_status
+        FROM t_scene s
+        LEFT JOIN t_scene_device sd ON s.id = sd.scene_id AND sd.deleted = 0
+        LEFT JOIN t_device d ON sd.device_id = d.device_id AND d.deleted = 0
+        <where>
+            s.deleted = 0
+            <if test="name != null and name.trim() != ''">
+                AND s.name LIKE CONCAT('%', #{name}, '%')
+            </if>
+            <if test="userId != null">
+                AND s.user_id = #{userId}
+            </if>
+            <if test="tenantId != null">
+                AND s.tenant_id = #{tenantId}
+            </if>
+            <if test="type != null and type.trim() != ''">
+                AND s.type = #{type}
+            </if>
+        </where>
+        ORDER BY s.create_time DESC
+    </select>
+
+</mapper>
