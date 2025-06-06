@@ -15,13 +15,11 @@ import top.dl.service.CommandService;
  * @Date 2025/6/4
  * @Description CommandController
  **/
-<<<<<<< HEAD
-=======
+
 @RestController
 @RequestMapping("api/command")
 @Tag(name = "命令模块")
 @AllArgsConstructor
->>>>>>> 3d14684137336532e3547576c79969c4aa037806
 public class CommandController {
     private final CommandService commandService;
 
