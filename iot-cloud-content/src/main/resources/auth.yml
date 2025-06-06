@@ -5,4 +5,3 @@ auth:
     - /api/note/category
     - /api/note/*
     - /api/user/getUserById
-    - /api/news/list
