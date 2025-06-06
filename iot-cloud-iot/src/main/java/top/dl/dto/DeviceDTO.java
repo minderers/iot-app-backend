@@ -6,6 +6,7 @@ import lombok.Data;
  **/
 @Data
 public class DeviceDTO {
+ private Long id;
  private String deviceId;
  private String name;
  private Integer type;

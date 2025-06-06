@@ -6,8 +6,15 @@
         <result column="device_id" property="deviceId" />
         <result column="name" property="name" />
         <result column="type" property="type" />
+        <result column="is_switched" property="isSwitched" />
         <result column="status" property="status" />
+        <result column="temperature" property="temperature" />
+        <result column="humidity" property="humidity" />
+        <result column="tenant_id" property="tenantId" />
+        <result column="admin_id" property="adminId" />
         <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="deleted" property="deleted" />
     </resultMap>
     <select id="getList" resultMap="DeviceResultMap">
         SELECT t1.*
