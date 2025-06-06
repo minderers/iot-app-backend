@@ -23,6 +23,8 @@ public class UserVO implements Serializable {
     private String nickname;
     @Schema(description = "⼿机号")
     private String mobile;
+    @Schema(description = "邮箱")
+    private String email;
     @Schema(description = "头像")
     private String avatar;
     @Schema(description = "性别 0：男 1：⼥ 2：未知")
