@@ -13,6 +13,7 @@ import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.stereotype.Service;
 import top.dl.dao.DeviceDao;
 import top.dl.entity.Device;
+import top.dl.entity.Scene;
 import top.dl.framework.common.exception.ServerException;
 import top.dl.framework.mybatis.service.impl.BaseServiceImpl;
 import top.dl.service.CommandService;
@@ -32,7 +33,7 @@ public class CommandServiceImpl extends BaseServiceImpl<DeviceDao, Device> imple
 
     private final MessageChannel mqttOutboundChannel;
     @Override
-    public void sendCommand(String deviceId, String command) {
+    public void sendDeviceCommand(String deviceId, String command) {
         QueryWrapper<Device> query = new QueryWrapper<>();
         query.eq("device_id", deviceId);
         Device device = this.getOne(query);
@@ -46,6 +47,18 @@ public class CommandServiceImpl extends BaseServiceImpl<DeviceDao, Device> imple
         String payload = JSON.toJSONString(map);
         Message<String> message = MessageBuilder.withPayload(payload)
                 .setHeader("mqtt_topic", "device/" + deviceId + "/control")
+                .build();
+        mqttOutboundChannel.send(message);
+    }
+
+    @Override
+    public void sendSceneCommand(String sceneId, String command) {
+        Map<String, Object> map = new HashMap<>();
+        map.put("sceneId", sceneId);
+        map.put("command", command);
+        String payload = JSON.toJSONString(map);
+        Message<String> message = MessageBuilder.withPayload(payload)
+                .setHeader("mqtt_topic", "scene/" + sceneId + "/control")
                 .build();
         mqttOutboundChannel.send(message);
     }

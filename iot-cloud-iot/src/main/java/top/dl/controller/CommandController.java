@@ -23,11 +23,17 @@ import top.dl.service.CommandService;
 public class CommandController {
     private final CommandService commandService;
 
-    @PostMapping("/control")
-    @Operation(summary = "发送控制命令")
-    public Result<String> sendCommand(@RequestParam String deviceId, @RequestParam String command) {
-        commandService.sendCommand(deviceId, command);
-        System.out.print("fasongchengg");
+    @PostMapping("/controlDevice")
+    @Operation(summary = "发送控制设备命令")
+    public Result<String> controlDevice(@RequestParam String deviceId, @RequestParam String command) {
+        commandService.sendDeviceCommand(deviceId, command);
         return Result.ok("指令发送成功！");
     }
+    @PostMapping("/controlScene")
+    @Operation(summary = "发送控制场景命令")
+    public Result<String> sendSceneCommand(@RequestParam String sceneId, @RequestParam String command) {
+        commandService.sendSceneCommand(sceneId, command);
+        return Result.ok("指令发送成功！");
+    }
+
 }
