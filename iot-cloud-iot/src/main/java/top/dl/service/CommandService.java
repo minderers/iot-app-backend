@@ -10,5 +10,6 @@ import top.dl.framework.mybatis.service.BaseService;
  **/
 
 public interface CommandService extends BaseService<Device> {
-    void sendCommand(String deviceId, String command);
+    void sendDeviceCommand(String deviceId, String command);
+    void sendSceneCommand(String deviceId, String command);
 }
