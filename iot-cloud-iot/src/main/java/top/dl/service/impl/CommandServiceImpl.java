@@ -45,11 +45,11 @@ public class CommandServiceImpl extends BaseServiceImpl<DeviceDao, Device> imple
         map.put("command", command);
         String payload = JSON.toJSONString(map);
         Message<String> message = MessageBuilder.withPayload(payload)
-                .setHeader("mqtt_topic", "iot/device/control")
+                .setHeader("mqtt_topic", "device/" + deviceId + "/control")
                 .build();
         mqttOutboundChannel.send(message);
     }
-    // 处理状态上报
+
     @ServiceActivator(inputChannel = "mqttInputChannel")
     public void handleStatusMessage(Message<?> message) {
         String payload = message.getPayload().toString();
@@ -57,12 +57,16 @@ public class CommandServiceImpl extends BaseServiceImpl<DeviceDao, Device> imple
             JSONObject json = JSON.parseObject(payload);
             String deviceId = json.getString("device_id");
             Boolean status = json.getBoolean("status");
+            Float temperature = json.getFloat("temperature");
+            Float humidity = json.getFloat("humidity");
             // 更新数据库状态
             UpdateWrapper<Device> updateWrapper = new UpdateWrapper<>();
             updateWrapper.eq("device_id", deviceId)
-                    .set("status", status);
+                    .set("status", status)
+                    .set("temperature", temperature)
+                    .set("humidity", humidity);
             baseMapper.update(null, updateWrapper);
-            log.info("设备状态更新: {} -> {}", deviceId, status);
+            log.info("设备状态更新: {} -> {},{},{}", deviceId, status, temperature, humidity);
         } catch (Exception e) {
             e.printStackTrace();
         }
