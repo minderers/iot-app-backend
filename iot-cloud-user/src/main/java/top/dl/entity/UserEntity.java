@@ -17,7 +17,7 @@ public class UserEntity extends BaseEntity {
     private String nickname;
     private String avatar;
     private String email;
-    private String gender;
+    private Integer gender;
     private Integer status;
     private Integer communityId;
     private Integer tenantId;
