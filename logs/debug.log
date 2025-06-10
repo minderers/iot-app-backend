@@ -6674,3 +6674,185 @@
 2025-06-10 09:09:03.904 [http-nio-8083-exec-6] DEBUG top.dl.dao.DeviceDao.selectList - <==      Total: 10
 2025-06-10 09:09:03.906 [reactor-http-nio-7] DEBUG o.s.c.g.f.h.o.ObservedResponseHttpHeadersFilter - Will instrument the response
 2025-06-10 09:09:03.906 [reactor-http-nio-7] DEBUG o.s.c.g.f.h.o.ObservedResponseHttpHeadersFilter - The response was handled for observation {name=http.client.requests(null), error=null, context=name='http.client.requests', contextualName='null', error='null', lowCardinalityKeyValues=[http.method='GET', http.status_code='UNKNOWN', spring.cloud.gateway.route.id='iot-cloud-iot', spring.cloud.gateway.route.uri='lb://iot-cloud-iot'], highCardinalityKeyValues=[http.uri='http://localhost:8080/api/device/list?page=1&limit=10'], map=[class io.micrometer.core.instrument.Timer$Sample='io.micrometer.core.instrument.Timer$Sample@24eff0ce', class io.micrometer.core.instrument.LongTaskTimer$Sample='SampleImpl{duration(seconds)=0.1759674, duration(nanos)=1.759674E8, startTimeNanos=507099209467200}'], parentObservation={name=http.server.requests(null), error=null, context=name='http.server.requests', contextualName='null', error='null', lowCardinalityKeyValues=[exception='none', method='GET', outcome='SUCCESS', status='200', uri='UNKNOWN'], highCardinalityKeyValues=[http.url='/iot/api/device/list'], map=[class io.micrometer.core.instrument.Timer$Sample='io.micrometer.core.instrument.Timer$Sample@6ce08e4b', class io.micrometer.core.instrument.LongTaskTimer$Sample='SampleImpl{duration(seconds)=0.1793678, duration(nanos)=1.793678E8, startTimeNanos=507099206120800}'], parentObservation=null}}
+2025-06-10 09:09:11.742 [boundedElastic-7] DEBUG o.s.cloud.gateway.filter.GatewayMetricsFilter - New routes count: 7
+2025-06-10 09:09:11.743 [boundedElastic-8] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-content applying {pattern=/iot-cloud-content/**} to Path
+2025-06-10 09:09:11.744 [boundedElastic-8] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-content applying filter {regexp=/iot-cloud-content/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-10 09:09:11.745 [boundedElastic-8] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_iot-cloud-content
+2025-06-10 09:09:11.745 [boundedElastic-8] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-iot applying {pattern=/iot-cloud-iot/**} to Path
+2025-06-10 09:09:11.746 [boundedElastic-8] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-iot applying filter {regexp=/iot-cloud-iot/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-10 09:09:11.747 [boundedElastic-8] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_iot-cloud-iot
+2025-06-10 09:09:11.747 [boundedElastic-8] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-user applying {pattern=/iot-cloud-user/**} to Path
+2025-06-10 09:09:11.748 [boundedElastic-8] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-user applying filter {regexp=/iot-cloud-user/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-10 09:09:11.748 [boundedElastic-8] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_iot-cloud-user
+2025-06-10 09:09:11.749 [boundedElastic-8] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-gateway applying {pattern=/iot-cloud-gateway/**} to Path
+2025-06-10 09:09:11.749 [boundedElastic-8] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-gateway applying filter {regexp=/iot-cloud-gateway/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-10 09:09:11.750 [boundedElastic-8] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_iot-cloud-gateway
+2025-06-10 09:09:11.750 [boundedElastic-8] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-user applying {_genkey_0=/**} to Path
+2025-06-10 09:09:11.750 [boundedElastic-8] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-user
+2025-06-10 09:09:11.750 [boundedElastic-8] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-content applying {_genkey_0=/content/**} to Path
+2025-06-10 09:09:11.751 [boundedElastic-8] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-content applying filter {_genkey_0=1} to StripPrefix
+2025-06-10 09:09:11.751 [boundedElastic-8] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-content
+2025-06-10 09:09:11.751 [boundedElastic-8] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-iot applying {_genkey_0=/iot/**} to Path
+2025-06-10 09:09:11.751 [boundedElastic-8] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-iot applying filter {_genkey_0=1} to StripPrefix
+2025-06-10 09:09:11.752 [boundedElastic-8] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-iot
+2025-06-10 09:09:12.606 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==>  Preparing: UPDATE t_device SET status=?,temperature=?,humidity=? WHERE deleted=0 AND (device_id = ?)
+2025-06-10 09:09:12.606 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==> Parameters: true(Boolean), null, null, dev_ECFABCCA030B_16(String)
+2025-06-10 09:09:12.648 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - <==    Updates: 1
+2025-06-10 09:09:12.650 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==>  Preparing: UPDATE t_device SET status=?,temperature=?,humidity=? WHERE deleted=0 AND (device_id = ?)
+2025-06-10 09:09:12.650 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==> Parameters: true(Boolean), null, null, dev_ECFABCCA030B_2(String)
+2025-06-10 09:09:12.679 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - <==    Updates: 0
+2025-06-10 09:09:12.681 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==>  Preparing: UPDATE t_device SET status=?,temperature=?,humidity=? WHERE deleted=0 AND (device_id = ?)
+2025-06-10 09:09:12.681 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==> Parameters: true(Boolean), null, null, dev_ECFABCCA030B_12(String)
+2025-06-10 09:09:12.707 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - <==    Updates: 0
+2025-06-10 09:09:12.709 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==>  Preparing: UPDATE t_device SET status=?,temperature=?,humidity=? WHERE deleted=0 AND (device_id = ?)
+2025-06-10 09:09:12.710 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==> Parameters: true(Boolean), 0.0(Float), 0.0(Float), dev_ECFABCCA030B_5(String)
+2025-06-10 09:09:12.744 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - <==    Updates: 0
+2025-06-10 09:09:12.746 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==>  Preparing: UPDATE t_device SET status=?,temperature=?,humidity=? WHERE deleted=0 AND (device_id = ?)
+2025-06-10 09:09:12.748 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==> Parameters: true(Boolean), null, null, dev_ECFABCCA030B_14(String)
+2025-06-10 09:09:12.834 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - <==    Updates: 0
+2025-06-10 09:09:12.836 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==>  Preparing: UPDATE t_device SET status=?,temperature=?,humidity=? WHERE deleted=0 AND (device_id = ?)
+2025-06-10 09:09:12.837 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==> Parameters: true(Boolean), null, null, dev_ECFABCCA030B_17(String)
+2025-06-10 09:09:12.891 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - <==    Updates: 0
+2025-06-10 09:09:22.577 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==>  Preparing: UPDATE t_device SET status=?,temperature=?,humidity=? WHERE deleted=0 AND (device_id = ?)
+2025-06-10 09:09:22.577 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==> Parameters: true(Boolean), null, null, dev_ECFABCCA030B_16(String)
+2025-06-10 09:09:22.612 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - <==    Updates: 1
+2025-06-10 09:09:22.613 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==>  Preparing: UPDATE t_device SET status=?,temperature=?,humidity=? WHERE deleted=0 AND (device_id = ?)
+2025-06-10 09:09:22.614 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==> Parameters: true(Boolean), null, null, dev_ECFABCCA030B_2(String)
+2025-06-10 09:09:22.655 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - <==    Updates: 0
+2025-06-10 09:09:22.656 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==>  Preparing: UPDATE t_device SET status=?,temperature=?,humidity=? WHERE deleted=0 AND (device_id = ?)
+2025-06-10 09:09:22.657 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==> Parameters: true(Boolean), null, null, dev_ECFABCCA030B_12(String)
+2025-06-10 09:09:22.720 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - <==    Updates: 0
+2025-06-10 09:09:22.722 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==>  Preparing: UPDATE t_device SET status=?,temperature=?,humidity=? WHERE deleted=0 AND (device_id = ?)
+2025-06-10 09:09:22.722 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==> Parameters: true(Boolean), 0.0(Float), 0.0(Float), dev_ECFABCCA030B_5(String)
+2025-06-10 09:09:22.770 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - <==    Updates: 0
+2025-06-10 09:09:22.772 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==>  Preparing: UPDATE t_device SET status=?,temperature=?,humidity=? WHERE deleted=0 AND (device_id = ?)
+2025-06-10 09:09:22.773 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==> Parameters: true(Boolean), null, null, dev_ECFABCCA030B_14(String)
+2025-06-10 09:09:22.805 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - <==    Updates: 0
+2025-06-10 09:09:22.806 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==>  Preparing: UPDATE t_device SET status=?,temperature=?,humidity=? WHERE deleted=0 AND (device_id = ?)
+2025-06-10 09:09:22.807 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==> Parameters: true(Boolean), null, null, dev_ECFABCCA030B_17(String)
+2025-06-10 09:09:22.996 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - <==    Updates: 0
+2025-06-10 09:09:32.597 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==>  Preparing: UPDATE t_device SET status=?,temperature=?,humidity=? WHERE deleted=0 AND (device_id = ?)
+2025-06-10 09:09:32.598 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==> Parameters: true(Boolean), null, null, dev_ECFABCCA030B_16(String)
+2025-06-10 09:09:32.705 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - <==    Updates: 1
+2025-06-10 09:09:32.708 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==>  Preparing: UPDATE t_device SET status=?,temperature=?,humidity=? WHERE deleted=0 AND (device_id = ?)
+2025-06-10 09:09:32.709 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==> Parameters: true(Boolean), null, null, dev_ECFABCCA030B_2(String)
+2025-06-10 09:09:32.806 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - <==    Updates: 0
+2025-06-10 09:09:32.808 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==>  Preparing: UPDATE t_device SET status=?,temperature=?,humidity=? WHERE deleted=0 AND (device_id = ?)
+2025-06-10 09:09:32.808 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==> Parameters: true(Boolean), null, null, dev_ECFABCCA030B_12(String)
+2025-06-10 09:09:32.878 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - <==    Updates: 0
+2025-06-10 09:09:32.881 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==>  Preparing: UPDATE t_device SET status=?,temperature=?,humidity=? WHERE deleted=0 AND (device_id = ?)
+2025-06-10 09:09:32.881 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==> Parameters: true(Boolean), 0.0(Float), 0.0(Float), dev_ECFABCCA030B_5(String)
+2025-06-10 09:09:32.947 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - <==    Updates: 0
+2025-06-10 09:09:32.949 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==>  Preparing: UPDATE t_device SET status=?,temperature=?,humidity=? WHERE deleted=0 AND (device_id = ?)
+2025-06-10 09:09:32.949 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==> Parameters: true(Boolean), null, null, dev_ECFABCCA030B_14(String)
+2025-06-10 09:09:33.065 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - <==    Updates: 0
+2025-06-10 09:09:33.067 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==>  Preparing: UPDATE t_device SET status=?,temperature=?,humidity=? WHERE deleted=0 AND (device_id = ?)
+2025-06-10 09:09:33.067 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==> Parameters: true(Boolean), null, null, dev_ECFABCCA030B_17(String)
+2025-06-10 09:09:33.151 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - <==    Updates: 0
+2025-06-10 09:09:41.764 [boundedElastic-7] DEBUG o.s.cloud.gateway.filter.GatewayMetricsFilter - New routes count: 7
+2025-06-10 09:09:41.764 [boundedElastic-5] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-content applying {pattern=/iot-cloud-content/**} to Path
+2025-06-10 09:09:41.765 [boundedElastic-5] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-content applying filter {regexp=/iot-cloud-content/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-10 09:09:41.766 [boundedElastic-5] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_iot-cloud-content
+2025-06-10 09:09:41.766 [boundedElastic-5] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-iot applying {pattern=/iot-cloud-iot/**} to Path
+2025-06-10 09:09:41.767 [boundedElastic-5] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-iot applying filter {regexp=/iot-cloud-iot/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-10 09:09:41.768 [boundedElastic-5] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_iot-cloud-iot
+2025-06-10 09:09:41.768 [boundedElastic-5] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-user applying {pattern=/iot-cloud-user/**} to Path
+2025-06-10 09:09:41.769 [boundedElastic-5] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-user applying filter {regexp=/iot-cloud-user/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-10 09:09:41.770 [boundedElastic-5] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_iot-cloud-user
+2025-06-10 09:09:41.770 [boundedElastic-5] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-gateway applying {pattern=/iot-cloud-gateway/**} to Path
+2025-06-10 09:09:41.771 [boundedElastic-5] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-gateway applying filter {regexp=/iot-cloud-gateway/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-10 09:09:41.772 [boundedElastic-5] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_iot-cloud-gateway
+2025-06-10 09:09:41.772 [boundedElastic-5] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-user applying {_genkey_0=/**} to Path
+2025-06-10 09:09:41.773 [boundedElastic-5] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-user
+2025-06-10 09:09:41.773 [boundedElastic-5] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-content applying {_genkey_0=/content/**} to Path
+2025-06-10 09:09:41.773 [boundedElastic-5] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-content applying filter {_genkey_0=1} to StripPrefix
+2025-06-10 09:09:41.774 [boundedElastic-5] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-content
+2025-06-10 09:09:41.774 [boundedElastic-5] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-iot applying {_genkey_0=/iot/**} to Path
+2025-06-10 09:09:41.774 [boundedElastic-5] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-iot applying filter {_genkey_0=1} to StripPrefix
+2025-06-10 09:09:41.775 [boundedElastic-5] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-iot
+2025-06-10 09:09:42.607 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==>  Preparing: UPDATE t_device SET status=?,temperature=?,humidity=? WHERE deleted=0 AND (device_id = ?)
+2025-06-10 09:09:42.607 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==> Parameters: true(Boolean), null, null, dev_ECFABCCA030B_16(String)
+2025-06-10 09:09:42.663 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - <==    Updates: 1
+2025-06-10 09:09:42.666 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==>  Preparing: UPDATE t_device SET status=?,temperature=?,humidity=? WHERE deleted=0 AND (device_id = ?)
+2025-06-10 09:09:42.666 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==> Parameters: true(Boolean), null, null, dev_ECFABCCA030B_2(String)
+2025-06-10 09:09:42.705 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - <==    Updates: 0
+2025-06-10 09:09:42.707 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==>  Preparing: UPDATE t_device SET status=?,temperature=?,humidity=? WHERE deleted=0 AND (device_id = ?)
+2025-06-10 09:09:42.707 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==> Parameters: true(Boolean), null, null, dev_ECFABCCA030B_12(String)
+2025-06-10 09:09:42.746 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - <==    Updates: 0
+2025-06-10 09:09:42.749 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==>  Preparing: UPDATE t_device SET status=?,temperature=?,humidity=? WHERE deleted=0 AND (device_id = ?)
+2025-06-10 09:09:42.750 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==> Parameters: true(Boolean), 0.0(Float), 0.0(Float), dev_ECFABCCA030B_5(String)
+2025-06-10 09:09:42.801 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - <==    Updates: 0
+2025-06-10 09:09:42.803 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==>  Preparing: UPDATE t_device SET status=?,temperature=?,humidity=? WHERE deleted=0 AND (device_id = ?)
+2025-06-10 09:09:42.803 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==> Parameters: true(Boolean), null, null, dev_ECFABCCA030B_14(String)
+2025-06-10 09:09:42.876 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - <==    Updates: 0
+2025-06-10 09:09:42.878 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==>  Preparing: UPDATE t_device SET status=?,temperature=?,humidity=? WHERE deleted=0 AND (device_id = ?)
+2025-06-10 09:09:42.879 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==> Parameters: true(Boolean), null, null, dev_ECFABCCA030B_17(String)
+2025-06-10 09:09:42.916 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - <==    Updates: 0
+2025-06-10 09:09:52.591 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==>  Preparing: UPDATE t_device SET status=?,temperature=?,humidity=? WHERE deleted=0 AND (device_id = ?)
+2025-06-10 09:09:52.591 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==> Parameters: true(Boolean), null, null, dev_ECFABCCA030B_16(String)
+2025-06-10 09:09:52.679 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - <==    Updates: 1
+2025-06-10 09:09:52.681 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==>  Preparing: UPDATE t_device SET status=?,temperature=?,humidity=? WHERE deleted=0 AND (device_id = ?)
+2025-06-10 09:09:52.682 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==> Parameters: true(Boolean), null, null, dev_ECFABCCA030B_2(String)
+2025-06-10 09:09:52.764 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - <==    Updates: 0
+2025-06-10 09:09:52.767 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==>  Preparing: UPDATE t_device SET status=?,temperature=?,humidity=? WHERE deleted=0 AND (device_id = ?)
+2025-06-10 09:09:52.768 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==> Parameters: true(Boolean), null, null, dev_ECFABCCA030B_12(String)
+2025-06-10 09:09:52.847 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - <==    Updates: 0
+2025-06-10 09:09:52.848 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==>  Preparing: UPDATE t_device SET status=?,temperature=?,humidity=? WHERE deleted=0 AND (device_id = ?)
+2025-06-10 09:09:52.849 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==> Parameters: true(Boolean), 0.0(Float), 0.0(Float), dev_ECFABCCA030B_5(String)
+2025-06-10 09:09:52.898 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - <==    Updates: 0
+2025-06-10 09:09:52.901 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==>  Preparing: UPDATE t_device SET status=?,temperature=?,humidity=? WHERE deleted=0 AND (device_id = ?)
+2025-06-10 09:09:52.901 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==> Parameters: true(Boolean), null, null, dev_ECFABCCA030B_14(String)
+2025-06-10 09:09:52.959 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - <==    Updates: 0
+2025-06-10 09:09:52.961 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==>  Preparing: UPDATE t_device SET status=?,temperature=?,humidity=? WHERE deleted=0 AND (device_id = ?)
+2025-06-10 09:09:52.962 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==> Parameters: true(Boolean), null, null, dev_ECFABCCA030B_17(String)
+2025-06-10 09:09:53.024 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - <==    Updates: 0
+2025-06-10 09:10:02.667 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==>  Preparing: UPDATE t_device SET status=?,temperature=?,humidity=? WHERE deleted=0 AND (device_id = ?)
+2025-06-10 09:10:02.667 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==> Parameters: true(Boolean), null, null, dev_ECFABCCA030B_16(String)
+2025-06-10 09:10:02.811 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - <==    Updates: 1
+2025-06-10 09:10:02.813 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==>  Preparing: UPDATE t_device SET status=?,temperature=?,humidity=? WHERE deleted=0 AND (device_id = ?)
+2025-06-10 09:10:02.813 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==> Parameters: true(Boolean), null, null, dev_ECFABCCA030B_2(String)
+2025-06-10 09:10:02.888 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - <==    Updates: 0
+2025-06-10 09:10:02.890 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==>  Preparing: UPDATE t_device SET status=?,temperature=?,humidity=? WHERE deleted=0 AND (device_id = ?)
+2025-06-10 09:10:02.890 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==> Parameters: true(Boolean), null, null, dev_ECFABCCA030B_12(String)
+2025-06-10 09:10:03.024 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - <==    Updates: 0
+2025-06-10 09:10:03.026 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==>  Preparing: UPDATE t_device SET status=?,temperature=?,humidity=? WHERE deleted=0 AND (device_id = ?)
+2025-06-10 09:10:03.026 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==> Parameters: true(Boolean), 0.0(Float), 0.0(Float), dev_ECFABCCA030B_5(String)
+2025-06-10 09:10:03.151 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - <==    Updates: 0
+2025-06-10 09:10:03.153 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==>  Preparing: UPDATE t_device SET status=?,temperature=?,humidity=? WHERE deleted=0 AND (device_id = ?)
+2025-06-10 09:10:03.154 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==> Parameters: true(Boolean), null, null, dev_ECFABCCA030B_14(String)
+2025-06-10 09:10:03.221 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - <==    Updates: 0
+2025-06-10 09:10:03.223 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==>  Preparing: UPDATE t_device SET status=?,temperature=?,humidity=? WHERE deleted=0 AND (device_id = ?)
+2025-06-10 09:10:03.223 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==> Parameters: true(Boolean), null, null, dev_ECFABCCA030B_17(String)
+2025-06-10 09:10:03.281 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - <==    Updates: 0
+2025-06-10 09:10:11.783 [boundedElastic-7] DEBUG o.s.cloud.gateway.filter.GatewayMetricsFilter - New routes count: 7
+2025-06-10 09:10:11.783 [boundedElastic-3] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-content applying {pattern=/iot-cloud-content/**} to Path
+2025-06-10 09:10:11.785 [boundedElastic-3] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-content applying filter {regexp=/iot-cloud-content/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-10 09:10:11.786 [boundedElastic-3] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_iot-cloud-content
+2025-06-10 09:10:11.786 [boundedElastic-3] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-iot applying {pattern=/iot-cloud-iot/**} to Path
+2025-06-10 09:10:11.787 [boundedElastic-3] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-iot applying filter {regexp=/iot-cloud-iot/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-10 09:10:11.787 [boundedElastic-3] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_iot-cloud-iot
+2025-06-10 09:10:11.788 [boundedElastic-3] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-user applying {pattern=/iot-cloud-user/**} to Path
+2025-06-10 09:10:11.788 [boundedElastic-3] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-user applying filter {regexp=/iot-cloud-user/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-10 09:10:11.789 [boundedElastic-3] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_iot-cloud-user
+2025-06-10 09:10:11.789 [boundedElastic-3] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-gateway applying {pattern=/iot-cloud-gateway/**} to Path
+2025-06-10 09:10:11.790 [boundedElastic-3] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition ReactiveCompositeDiscoveryClient_iot-cloud-gateway applying filter {regexp=/iot-cloud-gateway/?(?<remaining>.*), replacement=/${remaining}} to RewritePath
+2025-06-10 09:10:11.791 [boundedElastic-3] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: ReactiveCompositeDiscoveryClient_iot-cloud-gateway
+2025-06-10 09:10:11.791 [boundedElastic-3] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-user applying {_genkey_0=/**} to Path
+2025-06-10 09:10:11.791 [boundedElastic-3] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-user
+2025-06-10 09:10:11.791 [boundedElastic-3] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-content applying {_genkey_0=/content/**} to Path
+2025-06-10 09:10:11.792 [boundedElastic-3] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-content applying filter {_genkey_0=1} to StripPrefix
+2025-06-10 09:10:11.792 [boundedElastic-3] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-content
+2025-06-10 09:10:11.793 [boundedElastic-3] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-iot applying {_genkey_0=/iot/**} to Path
+2025-06-10 09:10:11.793 [boundedElastic-3] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition iot-cloud-iot applying filter {_genkey_0=1} to StripPrefix
+2025-06-10 09:10:11.793 [boundedElastic-3] DEBUG o.s.c.gateway.route.RouteDefinitionRouteLocator - RouteDefinition matched: iot-cloud-iot
+2025-06-10 09:10:12.567 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==>  Preparing: UPDATE t_device SET status=?,temperature=?,humidity=? WHERE deleted=0 AND (device_id = ?)
+2025-06-10 09:10:12.567 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==> Parameters: true(Boolean), null, null, dev_ECFABCCA030B_16(String)
+2025-06-10 09:10:12.622 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - <==    Updates: 1
+2025-06-10 09:10:12.624 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==>  Preparing: UPDATE t_device SET status=?,temperature=?,humidity=? WHERE deleted=0 AND (device_id = ?)
+2025-06-10 09:10:12.624 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==> Parameters: true(Boolean), null, null, dev_ECFABCCA030B_2(String)
+2025-06-10 09:10:12.694 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - <==    Updates: 0
+2025-06-10 09:10:12.696 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==>  Preparing: UPDATE t_device SET status=?,temperature=?,humidity=? WHERE deleted=0 AND (device_id = ?)
+2025-06-10 09:10:12.696 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==> Parameters: true(Boolean), null, null, dev_ECFABCCA030B_12(String)
+2025-06-10 09:10:12.777 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - <==    Updates: 0
+2025-06-10 09:10:12.779 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==>  Preparing: UPDATE t_device SET status=?,temperature=?,humidity=? WHERE deleted=0 AND (device_id = ?)
+2025-06-10 09:10:12.779 [MQTT Call: springboot-server_in] DEBUG top.dl.dao.DeviceDao.update - ==> Parameters: true(Boolean), 0.0(Float), 0.0(Float), dev_ECFABCCA030B_5(String)
