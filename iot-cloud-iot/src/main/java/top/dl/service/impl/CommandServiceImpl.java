@@ -12,6 +12,7 @@ import org.springframework.integration.annotation.ServiceActivator;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.MessageChannel;
 import org.springframework.messaging.support.MessageBuilder;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import top.dl.dao.DeviceDao;
 import top.dl.entity.Device;
@@ -22,6 +23,7 @@ import top.dl.service.MessageService;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * @Author ctynt
@@ -37,6 +39,9 @@ public class CommandServiceImpl extends BaseServiceImpl<DeviceDao, Device> imple
 
 
     private final MessageService messageService;
+
+    private static final Map<String, Long> heartbeatMap = new ConcurrentHashMap<>();
+
 
     @Override
     public void sendDeviceCommand(String deviceId, String command) {
@@ -69,21 +74,62 @@ public class CommandServiceImpl extends BaseServiceImpl<DeviceDao, Device> imple
         mqttOutboundChannel.send(message);
     }
 
+    @Scheduled(fixedRate = 10000) // 每分钟执行
+    public void checkDeviceOffline() {
+        long now = System.currentTimeMillis();
+        long timeout = 5 * 1000; // 5秒
+
+        System.out.println("检测心跳");
+
+        heartbeatMap.forEach((deviceId, lastTime) -> {
+            if (now - lastTime > timeout) {
+                UpdateWrapper<Device> updateWrapper = new UpdateWrapper<>();
+                updateWrapper.eq("deleted",0)
+                        .eq("status",1)
+                .set("status", 0);
+                baseMapper.update(null, updateWrapper);
+                log.info("设备 {} 心跳超时，标记为离线", deviceId);
+            } else {
+                log.info("心跳未超时");
+            }
+        });
+    }
+
+
     @ServiceActivator(inputChannel = "mqttInputChannel")
     public void handleStatusMessage(Message<?> message) {
         String payload = message.getPayload().toString();
+        log.info("Received MQTT message headers: {}", message.getHeaders());
+        String topic = (String) message.getHeaders().get("mqtt_receivedTopic");
+        assert topic != null;
+        Boolean isMatch = topic.matches("device/.+/heartbeat");
+        log.info("是否匹配:{}",isMatch);
         try {
             JSONObject json = JSON.parseObject(payload);
-            System.out.println("json数据");
-            System.out.print(json);
+            log.info("MQTT 消息 - topic: {}, payload: {}", topic, json);
+
+            if (topic.matches("device/.+/heartbeat")) {
+                // 处理心跳消息
+                Integer status = json.getInteger("status");
+                String deviceId = json.getString("device_id");
+                heartbeatMap.put(deviceId, System.currentTimeMillis());
+
+                // 更新设备状态为在线，记录心跳时间
+                UpdateWrapper<Device> updateWrapper = new UpdateWrapper<>();
+                updateWrapper.eq("deleted",0).eq("status",0).set("status", 1); // 表示设备在线
+                baseMapper.update(null, updateWrapper);
+
+                log.info("收到设备 心跳，状态：{}", status);
+                return;
+            }
+
+            // 如果是设备状态消息（如温湿度等）
             String deviceId = json.getString("device_id");
-            Integer status = json.getInteger("status");
             Boolean isSwitched = json.getBoolean("isSwitched");
 
             String message_device_id = json.getString("message_device_id");
             String content = json.getString("content");
             String typeStr = json.getString("type");
-
 
             Float temperature = null;
             Float humidity = null;
@@ -99,34 +145,34 @@ public class CommandServiceImpl extends BaseServiceImpl<DeviceDao, Device> imple
                     humidity = humidDouble.floatValue();
                 }
             } catch (Exception e) {
-                e.printStackTrace();
+                log.warn("解析温湿度异常", e);
             }
 
             UpdateWrapper<Device> updateWrapper = new UpdateWrapper<>();
             updateWrapper.eq("device_id", deviceId)
-                    .set("status", status)
+                    .eq("deleted",0)
                     .set("temperature", temperature)
                     .set("humidity", humidity)
-                    .set("is_switched",isSwitched);
+                    .set("is_switched", isSwitched);
             baseMapper.update(null, updateWrapper);
 
-            log.info("设备状态更新: deviceId={},status={},temperature={},humidity={},isSwitched={}", deviceId, status, temperature, humidity,isSwitched);
+            log.info("设备状态更新: deviceId={},temperature={},humidity={},isSwitched={}", deviceId, temperature, humidity, isSwitched);
 
-            log.info("接收到设备内容消息：deviceId={}, content={}, type={}", message_device_id, content ,typeStr);
-
+            // 处理内容消息
             if (StringUtils.isNotBlank(message_device_id) && StringUtils.isNotBlank(content)) {
                 Integer type = Integer.parseInt(typeStr);
-                log.info("接收到设备内容消息：deviceId={}, content={}, type={}", message_device_id, content ,type);
-
                 top.dl.entity.Message msg = new top.dl.entity.Message();
                 msg.setContent(content);
                 msg.setType(type);
                 msg.setDeviceId(message_device_id);
                 messageService.save(msg);
+
+                log.info("存储设备内容消息：deviceId={}, content={}, type={}", message_device_id, content, type);
             }
 
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("处理 MQTT 消息异常: {}", e.getMessage(), e);
         }
     }
+
 }

@@ -88,7 +88,7 @@ public class MqttConfig {
     public MessageProducer inbound() {
         MqttPahoMessageDrivenChannelAdapter adapter =
                 new MqttPahoMessageDrivenChannelAdapter(
-                        clientId + "_in", mqttClientFactory(), "device/+/status");
+                        clientId + "_in", mqttClientFactory(), "device/+/status","device/+/heartbeat");
         adapter.setCompletionTimeout(5000);
         adapter.setConverter(new DefaultPahoMessageConverter());
         adapter.setQos(1);

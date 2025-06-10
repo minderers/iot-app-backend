@@ -2,6 +2,7 @@ package top.dl;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
  * @author: minder
@@ -9,6 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @description:
  **/
 @SpringBootApplication
+@EnableScheduling
 public class IotApplication {
     public static void main(String[] args) {
         SpringApplication.run(IotApplication.class, args);
