@@ -4,6 +4,8 @@ import com.alibaba.fastjson2.JSON;
 import com.alibaba.fastjson2.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
+import com.baomidou.mybatisplus.core.toolkit.StringUtils;
+import jakarta.annotation.Resource;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.integration.annotation.ServiceActivator;
@@ -13,10 +15,10 @@ import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.stereotype.Service;
 import top.dl.dao.DeviceDao;
 import top.dl.entity.Device;
-import top.dl.entity.Scene;
 import top.dl.framework.common.exception.ServerException;
 import top.dl.framework.mybatis.service.impl.BaseServiceImpl;
 import top.dl.service.CommandService;
+import top.dl.service.MessageService;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -32,6 +34,10 @@ import java.util.Map;
 public class CommandServiceImpl extends BaseServiceImpl<DeviceDao, Device> implements CommandService {
 
     private final MessageChannel mqttOutboundChannel;
+
+
+    private final MessageService messageService;
+
     @Override
     public void sendDeviceCommand(String deviceId, String command) {
         QueryWrapper<Device> query = new QueryWrapper<>();
@@ -68,18 +74,57 @@ public class CommandServiceImpl extends BaseServiceImpl<DeviceDao, Device> imple
         String payload = message.getPayload().toString();
         try {
             JSONObject json = JSON.parseObject(payload);
+            System.out.println("json数据");
+            System.out.print(json);
             String deviceId = json.getString("device_id");
-            Boolean status = json.getBoolean("status");
-            Float temperature = json.getFloat("temperature");
-            Float humidity = json.getFloat("humidity");
-            // 更新数据库状态
+            Integer status = json.getInteger("status");
+            Boolean isSwitched = json.getBoolean("isSwitched");
+
+            String message_device_id = json.getString("message_device_id");
+            String content = json.getString("content");
+            String typeStr = json.getString("type");
+
+
+            Float temperature = null;
+            Float humidity = null;
+
+            try {
+                Double tempDouble = json.getDouble("temperature");
+                if (tempDouble != null) {
+                    temperature = tempDouble.floatValue();
+                }
+
+                Double humidDouble = json.getDouble("humidity");
+                if (humidDouble != null) {
+                    humidity = humidDouble.floatValue();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
             UpdateWrapper<Device> updateWrapper = new UpdateWrapper<>();
             updateWrapper.eq("device_id", deviceId)
                     .set("status", status)
                     .set("temperature", temperature)
-                    .set("humidity", humidity);
+                    .set("humidity", humidity)
+                    .set("is_switched",isSwitched);
             baseMapper.update(null, updateWrapper);
-            log.info("设备状态更新: {} -> {},{},{}", deviceId, status, temperature, humidity);
+
+            log.info("设备状态更新: deviceId={},status={},temperature={},humidity={},isSwitched={}", deviceId, status, temperature, humidity,isSwitched);
+
+            log.info("接收到设备内容消息：deviceId={}, content={}, type={}", message_device_id, content ,typeStr);
+
+            if (StringUtils.isNotBlank(message_device_id) && StringUtils.isNotBlank(content)) {
+                Integer type = Integer.parseInt(typeStr);
+                log.info("接收到设备内容消息：deviceId={}, content={}, type={}", message_device_id, content ,type);
+
+                top.dl.entity.Message msg = new top.dl.entity.Message();
+                msg.setContent(content);
+                msg.setType(type);
+                msg.setDeviceId(message_device_id);
+                messageService.save(msg);
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
