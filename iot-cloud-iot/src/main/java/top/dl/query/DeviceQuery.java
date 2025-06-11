@@ -17,4 +17,6 @@ public class DeviceQuery extends Query {
  private String name;
  @Schema(description = "设备状态")
  private Integer status;
+ @Schema(description = "租户ID")
+ private Long tenantId;
 }
