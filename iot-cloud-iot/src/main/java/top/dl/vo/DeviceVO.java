@@ -39,8 +39,4 @@ public class DeviceVO implements Serializable {
 
  @Schema(description = "湿度")
  private Float humidity;
-
- @Schema(description = "创建时间")
- @JsonFormat(pattern = DateUtils.DATE_TIME_PATTERN)
- private LocalDateTime createTime;
 }

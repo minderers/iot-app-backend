@@ -1,4 +1,5 @@
 package top.dl.service.impl;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -28,12 +29,17 @@ public class DeviceServiceImpl extends BaseServiceImpl<DeviceDao, Device> implem
 
     @Override
     public PageResult<DeviceVO> page(DeviceQuery query) {
-        Map<String, Object> params = getParams(query);
         IPage<Device> page = getPage(query);
-        params.put(Constant.PAGE, page);
-        List<Device> list = baseMapper.getList(params);
-        return new PageResult<>(DeviceConvert.INSTANCE.convertList(list),
-                page.getTotal());
+        LambdaQueryWrapper<Device> wrapper = new LambdaQueryWrapper<>();
+        if (query.getTenantId() != null) {
+            wrapper.eq(Device::getTenantId, query.getTenantId());
+        }
+        IPage<Device> resultPage = baseMapper.selectPage(page, wrapper);
+
+        return new PageResult<>(
+                DeviceConvert.INSTANCE.convertList(resultPage.getRecords()),
+                resultPage.getTotal()
+        );
     }
     private Map<String, Object> getParams(DeviceQuery query) {
         Map<String, Object> params = new HashMap<>();

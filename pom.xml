@@ -187,7 +187,7 @@
             <properties>
                 <!-- 开发环境 -->
                 <profile.name>dev</profile.name>
-                <nacos.server-addr>43.142.252.113:8848</nacos.server-addr>
+                <nacos.server-addr>127.0.0.1:8848</nacos.server-addr>
                 <nacos.namespace>public</nacos.namespace>
                 <nacos.username>nacos</nacos.username>
                 <nacos.password>nacos</nacos.password>
