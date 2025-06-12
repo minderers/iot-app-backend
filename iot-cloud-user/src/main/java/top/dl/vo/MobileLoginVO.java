@@ -15,4 +15,6 @@ public class MobileLoginVO {
     private String mobile;
     @Schema(description = "accessToken")
     private String accessToken;
+    @Schema(description = "租户Id")
+    private Integer tenantId;
 }

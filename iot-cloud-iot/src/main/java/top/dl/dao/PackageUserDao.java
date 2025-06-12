@@ -11,7 +11,4 @@ import top.dl.framework.mybatis.dao.BaseDao;
  **/
 @Mapper
 public interface PackageUserDao extends BaseDao<PackageUser> {
-    default PackageUser getByUserId(Integer userId) {
-        return this.selectOne(new QueryWrapper<PackageUser>().eq("user_id", userId));
-    }
 }

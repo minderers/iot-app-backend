@@ -13,7 +13,5 @@ import java.util.List;
  **/
 @Mapper
 public interface PackageDeviceDao extends BaseDao<PackageDevice> {
-    default List<PackageDevice> getByPackageId(Integer packageId) {
-        return this.selectList(new QueryWrapper<PackageDevice>().eq("package_id", packageId).eq("deleted", 0));
-    }
+
 }

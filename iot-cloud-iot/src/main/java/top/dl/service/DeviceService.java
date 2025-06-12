@@ -11,6 +11,5 @@ import java.util.List;
 
 public interface DeviceService extends BaseService<Device> {
     PageResult<DeviceVO> page(DeviceQuery query);
-    PageResult<DeviceVO> page(DeviceQuery query, List<Integer> deviceTypes);
     void update(DeviceDTO device);
 }
