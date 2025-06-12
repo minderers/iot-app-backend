@@ -1,3 +1,5 @@
 auth:
   ignore_urls:
     - /api/device/*
+    - /api/scene/*
+    - /api/scene/delete/*

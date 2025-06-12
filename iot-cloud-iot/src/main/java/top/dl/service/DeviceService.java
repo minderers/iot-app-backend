@@ -7,8 +7,10 @@ import top.dl.framework.mybatis.service.BaseService;
 import top.dl.query.DeviceQuery;
 import top.dl.vo.DeviceVO;
 
-public interface DeviceService extends BaseService<Device> {
- PageResult<DeviceVO> page(DeviceQuery query);
- void update(DeviceDTO device);
+import java.util.List;
 
+public interface DeviceService extends BaseService<Device> {
+    PageResult<DeviceVO> page(DeviceQuery query);
+    PageResult<DeviceVO> page(DeviceQuery query, List<Integer> deviceTypes);
+    void update(DeviceDTO device);
 }

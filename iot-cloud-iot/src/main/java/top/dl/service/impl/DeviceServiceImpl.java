@@ -34,6 +34,15 @@ public class DeviceServiceImpl extends BaseServiceImpl<DeviceDao, Device> implem
         if (query.getTenantId() != null) {
             wrapper.eq(Device::getTenantId, query.getTenantId());
         }
+        if (query.getType() != null) {
+            wrapper.eq(Device::getType, query.getType());
+        }
+        if (query.getName() != null && !query.getName().isEmpty()) {
+            wrapper.like(Device::getName, query.getName());
+        }
+        if (query.getStatus() != null) {
+            wrapper.eq(Device::getStatus, query.getStatus());
+        }
         IPage<Device> resultPage = baseMapper.selectPage(page, wrapper);
 
         return new PageResult<>(
@@ -41,6 +50,31 @@ public class DeviceServiceImpl extends BaseServiceImpl<DeviceDao, Device> implem
                 resultPage.getTotal()
         );
     }
+    
+    @Override
+    public PageResult<DeviceVO> page(DeviceQuery query, List<Integer> deviceTypes) {
+        IPage<Device> page = getPage(query);
+        LambdaQueryWrapper<Device> wrapper = new LambdaQueryWrapper<>();
+        if (query.getTenantId() != null) {
+            wrapper.eq(Device::getTenantId, query.getTenantId());
+        }
+        if (deviceTypes != null && !deviceTypes.isEmpty()) {
+            wrapper.in(Device::getType, deviceTypes);
+        }
+        if (query.getName() != null && !query.getName().isEmpty()) {
+            wrapper.like(Device::getName, query.getName());
+        }
+        if (query.getStatus() != null) {
+            wrapper.eq(Device::getStatus, query.getStatus());
+        }
+        IPage<Device> resultPage = baseMapper.selectPage(page, wrapper);
+
+        return new PageResult<>(
+                DeviceConvert.INSTANCE.convertList(resultPage.getRecords()),
+                resultPage.getTotal()
+        );
+    }
+    
     private Map<String, Object> getParams(DeviceQuery query) {
         Map<String, Object> params = new HashMap<>();
         params.put("name", query.getName());
