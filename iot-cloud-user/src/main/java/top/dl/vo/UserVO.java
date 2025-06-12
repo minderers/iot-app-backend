@@ -29,4 +29,8 @@ public class UserVO implements Serializable {
     private String avatar;
     @Schema(description = "性别 0：男 1：⼥ 2：未知")
     private Integer gender;
+    @Schema(description = "社区Id")
+    private Integer communityId;
+    @Schema(description = "租户Id")
+    private Integer tenantId;
 }
