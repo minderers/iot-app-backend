@@ -52,6 +52,7 @@ public class AuthServiceImpl implements AuthService {
         accountLoginVO.setId(user.getId());
         accountLoginVO.setAccessToken(accessToken);
         accountLoginVO.setUsername(user.getUsername());
+        accountLoginVO.setTenantId(user.getTenantId());
         return accountLoginVO;
     }
     @Override
@@ -84,6 +85,7 @@ public class AuthServiceImpl implements AuthService {
         mobileLoginVO.setId(userDetail.getId());
         mobileLoginVO.setAccessToken(accessToken);
         mobileLoginVO.setMobile(login.getMobile());
+        mobileLoginVO.setTenantId(userDetail.getTenantId());
         return mobileLoginVO;
     }
     @Override

@@ -15,4 +15,6 @@ public class AccountLoginVO {
     private String username;
     @Schema(description = "accessToken")
     private String accessToken;
+    @Schema(description = "租户Id")
+    private Integer tenantId;
 }
